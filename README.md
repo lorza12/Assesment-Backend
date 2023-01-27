@@ -1,17 +1,18 @@
 # Assesment-Backend
 
 ### Documentation:
-​
+
 Proyecto backend montado en node.js y express, con base de datos MoongoDb No SQl y conexion mongoose para peticiones http.
 
 La funcionalidad del proyecto tiene como objetico los siguientes requerimientos:
 
+![req](https://user-images.githubusercontent.com/115027137/215222150-24689bc0-5d67-4dd7-8cb0-e7b1e59f57cb.png)
 
-​
 
-​
+
+
 ## Para correr el codigo y probar 
-​
+
 - Descarga el pryocento y ejecuta el comando npm install para installar tocas lasd dependencias
 
 - Despues use Postman u otro sofward de su preferencia para ejecutar las peticiones http
@@ -20,7 +21,7 @@ La funcionalidad del proyecto tiene como objetico los siguientes requerimientos:
 
 - Debes agregue la siguiente ruta: http://localhost:8080/api/users y agregue la siguiente estructura en JSON con metodo POST
  
-​
+
 ```
 {
      "firstName": "***",
@@ -33,14 +34,14 @@ La funcionalidad del proyecto tiene como objetico los siguientes requerimientos:
  ```
     
 - Despues de haber creado tu el usuario deberas logiarte con la siguiente ruta: http://localhost:8080/auth/local/login y agregar la siguiente estructura en JSON con metodo POST
-​
+
 ```
-​
+
 {
     "email":"***",
     "password":"***"
 }
-​
+
 ```
 - Esto data al sistema un Token de validacion con el cual podremos estar autentticados dentro de la aplicacion y podremos seguirn con los siguientes pasos:
 
@@ -56,7 +57,7 @@ Para la creacion de una lista de favoritos tendremos que ir a la siguiente ruta:
     "link":"https://*****",
 }
 ```
-​
+
 - Para consultar todas las listas de favoritos que tienes como usuario debes ir a la siguiente ruta: http://localhost:8080/api/lists con metodo GET y se te van a listar todas las listas de favoritos que pertenescan al usuario expecifico 
 
 - Tambien si quieres listar una lista de favortios en expecifico deberas ir a la siguiente ruta: http://localhost:8080/api/lists/:id (id asignado a esa lista de favoritos ) con metodo GET y tendras como respuestas solo esa lista en expecifico 
@@ -66,8 +67,8 @@ Para la creacion de una lista de favoritos tendremos que ir a la siguiente ruta:
 - tener en cuenta que el codigo esta configurado para que no permita que otro usuario pueda eliminar o actualizar una lista que no corresponda a la suya 
 
 ## RUTAS
-​
-​
+
+![fdfgf](https://user-images.githubusercontent.com/115027137/215222198-289dfabd-3a43-400e-ad80-6dbab78334eb.png)
 
 
 
@@ -76,6 +77,7 @@ Para la creacion de una lista de favoritos tendremos que ir a la siguiente ruta:
 
 ### Indique cuales son las partes de la siguiente url:
 
+![lllll](https://user-images.githubusercontent.com/115027137/215222216-6b69caf1-8e08-4133-b255-5016f09f0bb6.png)
 
 
 ### Qué es una Web API
