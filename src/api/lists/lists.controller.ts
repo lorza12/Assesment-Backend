@@ -1,5 +1,6 @@
 import { Request, Response, NextFunction} from 'express';
 import { AuthRequest } from '../../auth/auth.types';
+import Lists from './lists.model';
 
 
 import { getAllLists, getListsById, deleteLists, createLists, updateLists } from "./lists.services";
@@ -51,27 +52,44 @@ export async function handleCreateLists(req: AuthRequest, res: Response, next: N
    }
 }
 
-export async function handleUpdateLists(req: Request, res: Response, next: NextFunction) {
+export async function handleUpdateLists(req: AuthRequest, res: Response, next: NextFunction) {
     const { id } = req.params;
-    const data = req.body;
-    console.log(data);
-  
-    const cart = await updateLists(id, data);
-  
-    if (!cart) {
-      return res.status(404).json({ message: 'cart not found' });
+    const user = req.user
+
+    const query = { _id: id, userId: user?._id}
+
+    const update = {
+        link: req.body.link,
+        tittle: req.body.tittle,
+        description: req.body.description,
+        Lists: { $push: req.body}
     }
   
-    return res.status(200).json(cart);
+    const list = await Lists.findOneAndUpdate(query, update, { new: true });
+  
+    if (!list) {
+      return res.status(404).json({ message: 'list not found' });
+    }
+  
+    return res.status(200).json(list);
   }
 
 
 
-export async function handleDeleteLists(req: Request, res: Response,  next: NextFunction) {
+export async function handleDeleteLists(req: AuthRequest, res: Response,  next: NextFunction) {
     const { id } = req.params;
+    const user = req.user;
+
+    const query = { _id: id, userId: user?._id}
+
+    
     try {
-      await deleteLists(id)
-        return res.status(200).json();
+     const delet = await Lists.findOneAndDelete(query)
+
+      if (!delet) {
+        return res.status(404).json({ message: 'Not authorized' });
+      }
+        return res.status(200).json(delet);
     } catch (error) {
         console.log(error);
         return res.status(500).json(error);

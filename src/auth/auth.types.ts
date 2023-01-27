@@ -8,3 +8,4 @@ export interface AuthRequest extends Request {
 export type Role = 'ADMIN' | 'USER';
 
 export type Roles = Role[];
+

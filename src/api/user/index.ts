@@ -22,7 +22,7 @@ router.get('/:id', handleGetUser);
 // POST /api/users
 router.post('/', handleCreateUser);
 // PATCH /api/users/:id
-router.patch('/edit/:id',isAuthenticated,handleUpdateUser )
+router.patch('/edit/:id',isAuthenticated,handleUpdateUser);
 // DELETE /api/users/:id
 router.delete('/:id',isAuthenticated, handleDeleteUser);
 
