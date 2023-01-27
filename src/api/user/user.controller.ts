@@ -62,7 +62,7 @@ export async function handleUpdateUser(req: Request, res: Response, next: NextFu
   const cart = await updateUser(id, data);
 
   if (!cart) {
-    return res.status(404).json({ message: 'cart not found' });
+    return res.status(404).json({ message: 'list not found' });
   }
 
   return res.status(200).json(cart);
